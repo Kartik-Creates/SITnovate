@@ -4,3 +4,4 @@ firebase-admin
 gunicorn
 joblib
 scikit-learn
+python-dotenv

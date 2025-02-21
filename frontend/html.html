@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Spam Detection</title>
-  <link rel="stylesheet" href="./styles.css"> <!-- Link to CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Classifier</title>
+
+    <!-- Fix for favicon error -->
+    <link rel="icon" href="data:,">
+
+    <!-- Link external CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Email Spam Detection</h1>
-<<<<<<< HEAD
-    <input type="text" id="emailField" placeholder="Enter your email">
-    <button id="checkSpamButton">Check for Spam</button>
-=======
-    <textarea id="emailText" placeholder="Enter your email text here..."></textarea>
-    <button id="submitBtn">Check for Spam</button>
->>>>>>> 7ae3501e94362588c93b4434b2de01389d6f7b5c
-    <div id="result" class="result"></div>
-  </div>
 
-  <script src="./script.js"></script> <!-- Link to JavaScript -->
+    <div class="container">
+        <h1>Email Spam Detection</h1>
+
+        <input type="text" id="text" placeholder="Enter text to classify..." required>
+        <button id="checkSpamButton">Check for Spam</button>
+
+        <div id="result"></div>
+    </div>
+
+    <!-- Link external JavaScript file (Make sure this is at the bottom) -->
+    <script src="script.js"></script>
+
 </body>
 </html>

@@ -10,11 +10,6 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import joblib
 import os
 import numpy as np
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 7ae3501e94362588c93b4434b2de01389d6f7b5c
 from nltk.stem import PorterStemmer
 
 stemmer = PorterStemmer()
@@ -25,17 +20,12 @@ def clean_text(text):
     words = text.split()
     words = [stemmer.stem(word) for word in words if word not in stop_words]  # Apply stemming
     return " ".join(words)
-<<<<<<< HEAD
->>>>>>> 7ae3501e94362588c93b4434b2de01389d6f7b5c
-=======
->>>>>>> 7ae3501e94362588c93b4434b2de01389d6f7b5c
-
 # Ensure stopwords are downloaded
 nltk.download("stopwords", quiet=True)
 stop_words = set(stopwords.words("english"))
 
 # Load Dataset (Fix file path issue)
-csv_path = r"C:\Users\Hp\Desktop\SITnovate\model\spam.csv"  # Use raw string (r"...")
+csv_path = "spam.csv"  # Ensure file is in the same directory
 df = pd.read_csv(csv_path, encoding="latin-1")
 
 # Keep only necessary columns (Check if correct columns exist)
@@ -45,15 +35,6 @@ df.columns = ["label", "message"]
 # Convert labels to binary (ham = 0, spam = 1)
 df["label"] = df["label"].map({"ham": 0, "spam": 1})
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Check label distribution (Now `df` is defined)
-=======
-# Check label distribution (Now df is defined)
->>>>>>> 7ae3501e94362588c93b4434b2de01389d6f7b5c
-=======
-# Check label distribution (Now df is defined)
->>>>>>> 7ae3501e94362588c93b4434b2de01389d6f7b5c
 unique, counts = np.unique(df["label"], return_counts=True)
 print(dict(zip(unique, counts)))  # Check spam (1) vs. ham (0) ratio
 
@@ -85,9 +66,9 @@ print(f"Precision: {precision_score(y_test, y_pred):.2f}")
 print(f"Recall: {recall_score(y_test, y_pred):.2f}")
 print(f"F1 Score: {f1_score(y_test, y_pred):.2f}")
 
-# Save Model and Vectorizer
-save_dir = r"C:\Users\Hp\Desktop\SITnovate\model"
-os.makedirs(save_dir, exist_ok=True)  # Create directory if not exists
+save_dir = os.path.join(os.getcwd(), "model")  # Save inside the current directory
+os.makedirs(save_dir, exist_ok=True)  # Create directory if it doesn't exist
+
 
 joblib.dump(model, os.path.join(save_dir, "spam_model.pkl"))
 print(f"Model saved as {os.path.join(save_dir, 'spam_model.pkl')}")
